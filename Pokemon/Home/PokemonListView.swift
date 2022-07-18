@@ -15,9 +15,8 @@ struct PokemonListView: View {
 
             List {
                 
-                ForEach((model.pokemon?.results ?? [PKMAPIResource<PKMPokemon>]()), id: \.self) { key in
-                    
-                    Text("\(key.name ?? "")")
+                ForEach(self.model.pokemonList?.results ?? [ResultModel]()) { pokemon in
+                    Text(pokemon.name ?? "Pokemon")
                 }
                 
             }.listStyle(.grouped)

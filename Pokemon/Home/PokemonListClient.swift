@@ -26,6 +26,11 @@ class PokemonListClient {
             
             return ResponseManager.success(session)
         }catch {
+            
+            debugPrint(error.localizedDescription)
+            
+            debugPrint(error)
+            
             throw ValidationError.invalidServerResponse
         }
     }

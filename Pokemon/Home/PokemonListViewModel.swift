@@ -9,18 +9,28 @@ import Foundation
 import PokemonAPI
 class PokemonListViewModel: ObservableObject {
     
-   @Published var pokemon:PKMPagedObject<PKMPokemon>?
+   @Published var pokemonList:PokemonListModel?
+    private let client:PokemonListClient = PokemonListClient()
     
     /// Fetch pokemon list
     @MainActor
     func getPokemonList() async {
         
         do {
-            pokemon = try await PokemonAPI().pokemonService.fetchPokemonList(paginationState: .initial(pageLimit: 50))
-            debugPrint(pokemon?.results)
-        }
-        catch {
-            print(error.localizedDescription)
+            let response = try await self.client.retrivePokemonList()
+            
+            switch response {
+            case let .success(pokelist):
+                
+                self.pokemonList = pokelist
+                
+            case let .error(error):
+                debugPrint("====>\(error)")
+            case .offline:
+                debugPrint("Offline")
+            }
+        }catch {
+            debugPrint(error.localizedDescription)
         }
     }
 
