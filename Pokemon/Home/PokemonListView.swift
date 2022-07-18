@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct PokemonListView: View {
+    @StateObject var model = PokemonListViewModel()
     var body: some View {
-        Text("Hello, World!")
+        VStack{
+            Text("Hello, World!")
+        }.onAppear {
+            Task {
+                await model.getPokemonList()
+            }
+        }
     }
 }
 
