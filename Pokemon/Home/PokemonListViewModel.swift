@@ -9,8 +9,11 @@ import Foundation
 
 class PokemonListViewModel: ObservableObject {
     
-   @Published var pokemonList:PokemonListModel?
+    @Published var pokemonList:PokemonListModel?
     private let client:PokemonListClient = PokemonListClient()
+    
+    /// Search pokemon by name
+    @Published var searchPokemon:String = ""
     
     /// Fetch pokemon list
     @MainActor

@@ -37,6 +37,17 @@ struct PokemonListView: View {
             .navigationTitle("Pokemons")
             
         }.navigationViewStyle(StackNavigationViewStyle())
+        .searchable(text: self.$model.searchPokemon) {
+            
+            let searchableList = (self.model.pokemonList?.results ?? [ResultModel]()).filter{($0.name ?? "").capitalized.contains(self.model.searchPokemon.capitalized)}
+
+            ForEach(searchableList) { pokemon in
+
+                /// Cell view
+                Text(pokemon.name ?? "Pokemon")
+            }
+            
+        }
         
         
     }
