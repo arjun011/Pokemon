@@ -16,6 +16,7 @@
 		DC9A147E2885748E0063407F /* PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A147D2885748E0063407F /* PokemonTests.swift */; };
 		DC9A14882885748E0063407F /* PokemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A14872885748E0063407F /* PokemonUITests.swift */; };
 		DC9A148A2885748E0063407F /* PokemonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A14892885748E0063407F /* PokemonUITestsLaunchTests.swift */; };
+		DC9A149828857E410063407F /* PokemonAPI in Frameworks */ = {isa = PBXBuildFile; productRef = DC9A149728857E410063407F /* PokemonAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		DC9A14832885748E0063407F /* PokemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9A14872885748E0063407F /* PokemonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonUITests.swift; sourceTree = "<group>"; };
 		DC9A14892885748E0063407F /* PokemonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DC9A14A0288580110063407F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC9A149828857E410063407F /* PokemonAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,7 @@
 		DC9A14662885748B0063407F /* Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				DC9A14A0288580110063407F /* Info.plist */,
 				DC9A14672885748B0063407F /* PokemonApp.swift */,
 				DC9A14692885748B0063407F /* ContentView.swift */,
 				DC9A146B2885748E0063407F /* Assets.xcassets */,
@@ -149,6 +153,9 @@
 			dependencies = (
 			);
 			name = Pokemon;
+			packageProductDependencies = (
+				DC9A149728857E410063407F /* PokemonAPI */,
+			);
 			productName = Pokemon;
 			productReference = DC9A14642885748B0063407F /* Pokemon.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +228,9 @@
 				Base,
 			);
 			mainGroup = DC9A145B2885748B0063407F;
+			packageReferences = (
+				DC9A149628857E410063407F /* XCRemoteSwiftPackageReference "PokemonAPI" */,
+			);
 			productRefGroup = DC9A14652885748B0063407F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -427,6 +437,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Pokemon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pokemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -456,6 +467,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Pokemon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pokemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -587,6 +599,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC9A149628857E410063407F /* XCRemoteSwiftPackageReference "PokemonAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kinkofer/PokemonAPI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC9A149728857E410063407F /* PokemonAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC9A149628857E410063407F /* XCRemoteSwiftPackageReference "PokemonAPI" */;
+			productName = PokemonAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DC9A14722885748E0063407F /* Pokemon.xcdatamodeld */ = {
