@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import PokemonAPI
+
 class PokemonListViewModel: ObservableObject {
     
    @Published var pokemonList:PokemonListModel?

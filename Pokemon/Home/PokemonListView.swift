@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import PokemonAPI
+
 struct PokemonListView: View {
     @StateObject var model = PokemonListViewModel()
     var body: some View {
