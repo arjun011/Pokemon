@@ -11,21 +11,34 @@ struct PokemonListView: View {
     @StateObject var model = PokemonListViewModel()
     var body: some View {
         
-        VStack{
-
-            List {
+        /// Navigation view
+        NavigationView {
+            
+            VStack{
                 
-                ForEach(self.model.pokemonList?.results ?? [ResultModel]()) { pokemon in
-                    Text(pokemon.name ?? "Pokemon")
+                /// List of Pokemons
+                List {
+                    
+                    ForEach(self.model.pokemonList?.results ?? [ResultModel]()) { pokemon in
+                        
+                        /// Cell view
+                        Text(pokemon.name ?? "Pokemon")
+                    }
+                    
+                }.listStyle(.grouped)
+                
+            }.onAppear {
+                
+                Task {
+                    /// Retrive pokemon list from API
+                    await model.getPokemonList()
                 }
-                
-            }.listStyle(.grouped)
-
-        }.onAppear {
-            Task {
-                await model.getPokemonList()
             }
-        }
+            .navigationTitle("Pokemons")
+            
+        }.navigationViewStyle(StackNavigationViewStyle())
+        
+        
     }
 }
 
