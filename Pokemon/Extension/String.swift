@@ -8,6 +8,9 @@
 import Foundation
 
 extension String {
+    
+    /// Capitalize Frist letter of String
+    /// - Returns: arjun -> Arjun
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }
