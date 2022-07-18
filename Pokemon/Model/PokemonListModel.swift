@@ -12,12 +12,14 @@ struct PokemonListModel:Codable {
     var count: Int?
     var next: String?
     var previous: String?
-    var results: [Result]?
+    var results: [ResultModel]?
     
 }
 
 // MARK: - Result
-struct ResultModel:Codable {
+struct ResultModel:Codable , Identifiable{
+    var id = UUID()
     var name: String?
     var url: String?
+    
 }
