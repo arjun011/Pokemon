@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
-
+import PokemonAPI
 struct PokemonListView: View {
     @StateObject var model = PokemonListViewModel()
     var body: some View {
+        
         VStack{
-            Text("Hello, World!")
+
+            List {
+                
+                ForEach((model.pokemon?.results ?? [PKMAPIResource<PKMPokemon>]()), id: \.self) { key in
+                    
+                    Text("\(key.name ?? "")")
+                }
+                
+            }.listStyle(.grouped)
+
         }.onAppear {
             Task {
                 await model.getPokemonList()
