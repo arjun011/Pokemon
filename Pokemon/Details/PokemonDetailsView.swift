@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct PokemonDetailsView: View {
+    
     var body: some View {
-        Text("Hello, World!")
+        
+        VStack {
+            Text("Hello, World!")
+        }.onAppear {
+            
+        }
+        
+        
     }
 }
 

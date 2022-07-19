@@ -21,8 +21,11 @@ struct PokemonListView: View {
                     
                     ForEach(self.model.pokemonList?.results ?? [ResultModel]()) { pokemon in
                         
-                        /// Cell view
-                        Text((pokemon.name ?? "Pokemon").capitalizingFirstLetter())
+                        NavigationLink(destination: PokemonDetailsView()) {
+                            /// Cell view
+                            Text((pokemon.name ?? "Pokemon").capitalizingFirstLetter())
+                        }
+                    
                     }
                     
                 }.listStyle(.grouped)
