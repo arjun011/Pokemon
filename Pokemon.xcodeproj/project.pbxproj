@@ -38,6 +38,7 @@
 		DC9A14C828868B5F0063407F /* PokemonDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A14C628868B5F0063407F /* PokemonDetailsModel.swift */; };
 		DC9A14CA28868FFF0063407F /* PokemonDetailsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A14C928868FFF0063407F /* PokemonDetailsClient.swift */; };
 		DC9A14CB28868FFF0063407F /* PokemonDetailsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A14C928868FFF0063407F /* PokemonDetailsClient.swift */; };
+		DC9A14CE288693FA0063407F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DC9A14CD288693FA0063407F /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC9A14CE288693FA0063407F /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +238,7 @@
 			);
 			name = Pokemon;
 			packageProductDependencies = (
+				DC9A14CD288693FA0063407F /* SDWebImageSwiftUI */,
 			);
 			productName = Pokemon;
 			productReference = DC9A14642885748B0063407F /* Pokemon.app */;
@@ -310,6 +313,7 @@
 			);
 			mainGroup = DC9A145B2885748B0063407F;
 			packageReferences = (
+				DC9A14CC288693FA0063407F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = DC9A14652885748B0063407F /* Products */;
 			projectDirPath = "";
@@ -701,6 +705,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC9A14CC288693FA0063407F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC9A14CD288693FA0063407F /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC9A14CC288693FA0063407F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DC9A14722885748E0063407F /* Pokemon.xcdatamodeld */ = {
