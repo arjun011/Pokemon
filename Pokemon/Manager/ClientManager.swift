@@ -19,7 +19,7 @@ enum ValidationError: Error {
 }
 
 /// Mnage API response
-public enum ResponseManager<T> {
+public enum ResponseManager<T:Codable> {
     case offline
     case success(T)
     case error(Error)

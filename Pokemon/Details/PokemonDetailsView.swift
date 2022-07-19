@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct PokemonDetailsView: View {
+    @StateObject private var model:PokemonDetailsViewModel = PokemonDetailsViewModel()
+    var detailsUrl:String?
     
     var body: some View {
-        
         VStack {
+
             Text("Hello, World!")
+
         }.onAppear {
-            
+            Task {
+                await model.getPokemonDetails(detailsUrl: detailsUrl)
+            }
         }
         
         

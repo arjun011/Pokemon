@@ -21,7 +21,7 @@ struct PokemonListView: View {
                     
                     ForEach(self.model.pokemonList?.results ?? [ResultModel]()) { pokemon in
                         
-                        NavigationLink(destination: PokemonDetailsView()) {
+                        NavigationLink(destination: PokemonDetailsView(detailsUrl: pokemon.url)) {
                             /// Cell view
                             Text((pokemon.name ?? "Pokemon").capitalizingFirstLetter())
                         }
