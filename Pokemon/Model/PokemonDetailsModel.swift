@@ -241,7 +241,8 @@ struct OfficialArtwork: Codable {
 }
 
 // MARK: - Stat
-struct Stat: Codable {
+struct Stat: Codable, Identifiable {
+    var id = UUID()
     var baseStat, effort: Int?
     var stat: Species?
 
