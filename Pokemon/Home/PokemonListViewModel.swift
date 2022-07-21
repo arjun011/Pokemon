@@ -9,7 +9,10 @@ import Foundation
 
 class PokemonListViewModel: ObservableObject {
     
+    /// Pokemon list
     @Published var pokemonList:PokemonListModel?
+    
+    /// PokemonListClient
     private let client:PokemonListClient = PokemonListClient()
     
     /// Search pokemon by name
