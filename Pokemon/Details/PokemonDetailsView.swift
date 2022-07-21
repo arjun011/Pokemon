@@ -87,13 +87,40 @@ struct PokemonDetailsView: View {
                             
                             Spacer()
                             
-                            Text("Hellp")
+                            PokemonAboutView(pokemonDetails: self.model.pokemonDetails)
+                                .padding(.horizontal, 25)
+                            
+                            HStack(alignment: .center, spacing: 20) {
+                            
+                                VStack(alignment: .leading, spacing: 10) {
+                                        
+                                    Text("Species")
+                                    Text("Height")
+                                    Text("Weight")
+                                    
+                                    
+                                }.foregroundColor(.secondary)
+                                
+                                VStack(alignment: .leading, spacing: 10) {
+                                        
+                                    Text(self.model.pokemonDetails?.species?.name ?? "")
+                                    Text("\(self.model.pokemonDetails?.height ?? 0)")
+                                    Text("\(self.model.pokemonDetails?.weight ?? 0)")
+                                }
+                                
+                            }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                                .padding(.horizontal, 25)
+                                
+                            
+                            
+                            
                             
                             Spacer()
                             
                         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                            .background(Color.white)
+                            //.background(Color.white)
                             .cornerRadius(40, corners: [.topLeft, .topRight])
+                            .padding()
                            
                     }
                     
