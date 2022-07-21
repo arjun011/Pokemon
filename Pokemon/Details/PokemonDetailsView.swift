@@ -36,21 +36,7 @@ struct PokemonDetailsView: View {
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             
-                            LazyHStack {
-                                
-                                ForEach(self.model.pokemonDetails?.types ?? [TypeElement]()) { elementType in
-                                    
-                                    
-                                    Text(elementType.type?.name ?? "")
-                                        .font(.system(size: 15))
-                                        .padding(.horizontal)
-                                        .padding(.vertical, 10)
-                                        .background(Color.white)
-                                        .cornerRadius(.infinity)
-                                    
-                                }
-                                
-                            }
+                            PokemonTypesView(pokemonDetails: self.model.pokemonDetails)
                         }
                         .frame(height: 40)
                         

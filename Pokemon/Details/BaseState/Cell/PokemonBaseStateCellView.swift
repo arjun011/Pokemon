@@ -13,7 +13,7 @@ struct PokemonBaseStateCellView: View {
         
         HStack(alignment: .center, spacing: 10) {
             
-            Text(pokemonStat?.stat?.name ?? "")
+            Text((pokemonStat?.stat?.name ?? "").capitalizingFirstLetter())
                 .foregroundColor(.secondary)
                 
             Text("\(pokemonStat?.baseStat ?? 0)")
