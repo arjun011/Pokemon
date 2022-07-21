@@ -56,6 +56,11 @@ struct Ability: Codable {
 struct Species: Codable {
     var name: String?
     var url: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case url = "url"
+    }
 }
 
 // MARK: - GameIndex
@@ -247,9 +252,15 @@ struct Stat: Codable {
 }
 
 // MARK: - TypeElement
-struct TypeElement: Codable {
+struct TypeElement: Codable, Identifiable {
+    var id = UUID()
     var slot: Int?
     var type: Species?
+    
+    enum CodingKeys: String, CodingKey {
+        case slot = "slot"
+        case type = "type"
+    }
 }
 
 

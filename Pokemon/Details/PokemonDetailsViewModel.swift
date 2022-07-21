@@ -15,6 +15,7 @@ class PokemonDetailsViewModel:ObservableObject {
     /// Pokemon details Client
     private let client:PokemonDetailsClient = PokemonDetailsClient()
     
+    @Published var selectedSegment:Int = 0
     
     @MainActor
     /// Get pokemon details
