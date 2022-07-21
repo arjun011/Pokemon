@@ -15,6 +15,8 @@
 		DC1645242889177B0074A265 /* PokemonBaseStateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1645222889177B0074A265 /* PokemonBaseStateCellView.swift */; };
 		DC164527288919000074A265 /* PokemonTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC164526288919000074A265 /* PokemonTypesView.swift */; };
 		DC164528288919000074A265 /* PokemonTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC164526288919000074A265 /* PokemonTypesView.swift */; };
+		DC16452B28891B830074A265 /* PokemonListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC16452A28891B830074A265 /* PokemonListCellView.swift */; };
+		DC16452C28891B830074A265 /* PokemonListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC16452A28891B830074A265 /* PokemonListCellView.swift */; };
 		DC9A14682885748B0063407F /* PokemonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A14672885748B0063407F /* PokemonApp.swift */; };
 		DC9A146A2885748B0063407F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A14692885748B0063407F /* ContentView.swift */; };
 		DC9A146C2885748E0063407F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9A146B2885748E0063407F /* Assets.xcassets */; };
@@ -73,6 +75,7 @@
 		DC16451C288912F60074A265 /* PokemonBaseStatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonBaseStatesView.swift; sourceTree = "<group>"; };
 		DC1645222889177B0074A265 /* PokemonBaseStateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonBaseStateCellView.swift; sourceTree = "<group>"; };
 		DC164526288919000074A265 /* PokemonTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypesView.swift; sourceTree = "<group>"; };
+		DC16452A28891B830074A265 /* PokemonListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListCellView.swift; sourceTree = "<group>"; };
 		DC9A14642885748B0063407F /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9A14672885748B0063407F /* PokemonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonApp.swift; sourceTree = "<group>"; };
 		DC9A14692885748B0063407F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,6 +162,14 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		DC16452928891B5C0074A265 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DC16452A28891B830074A265 /* PokemonListCellView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DC9A145B2885748B0063407F = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +237,7 @@
 		DC9A14A1288593990063407F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DC16452928891B5C0074A265 /* Cell */,
 				DC9A14A2288593A90063407F /* PokemonListView.swift */,
 				DC9A14A5288593C60063407F /* PokemonListViewModel.swift */,
 				DC9A14B32885C9660063407F /* PokemonListClient.swift */,
@@ -416,6 +428,7 @@
 				DC9A14BA2885EC8C0063407F /* String.swift in Sources */,
 				DC9A14A3288593A90063407F /* PokemonListView.swift in Sources */,
 				DC164527288919000074A265 /* PokemonTypesView.swift in Sources */,
+				DC16452B28891B830074A265 /* PokemonListCellView.swift in Sources */,
 				DC9A14712885748E0063407F /* Persistence.swift in Sources */,
 				DC9A14742885748E0063407F /* Pokemon.xcdatamodeld in Sources */,
 				DC9A14B42885C9660063407F /* PokemonListClient.swift in Sources */,
@@ -449,6 +462,7 @@
 				DC1645242889177B0074A265 /* PokemonBaseStateCellView.swift in Sources */,
 				DC9A14CB28868FFF0063407F /* PokemonDetailsClient.swift in Sources */,
 				DC9A14BB2885EC8C0063407F /* String.swift in Sources */,
+				DC16452C28891B830074A265 /* PokemonListCellView.swift in Sources */,
 				DC9A14C228868A9B0063407F /* PokemonDetailsViewModel.swift in Sources */,
 				DC9A14BF2885F21C0063407F /* PokemonDetailsView.swift in Sources */,
 				DC16451B28890B330074A265 /* PokemonAboutView.swift in Sources */,

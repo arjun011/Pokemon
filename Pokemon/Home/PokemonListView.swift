@@ -9,6 +9,11 @@ import SwiftUI
 
 struct PokemonListView: View {
     @StateObject var model = PokemonListViewModel()
+    
+    @State var defaultBaseCurrency:String = "USD"
+    @State var showPokemonDetailsView:Bool = false
+    @State var selectedPokemon:ResultModel?
+    
     var body: some View {
         
         /// Navigation view
@@ -16,16 +21,23 @@ struct PokemonListView: View {
             
             VStack{
                 
+                NavigationLink(destination: PokemonDetailsView(detailsUrl: selectedPokemon?.url), isActive: $showPokemonDetailsView,
+                               label: { })
+                
                 /// List of Pokemons
                 List {
                     
                     ForEach(self.model.pokemonList?.results ?? [ResultModel]()) { pokemon in
                         
-                        NavigationLink(destination: PokemonDetailsView(detailsUrl: pokemon.url)) {
-                            /// Cell view
-                            Text((pokemon.name ?? "Pokemon").capitalizingFirstLetter())
-                        }
-                    
+                        /// Cell view
+                        PokemonListCellView(pokemonDetail: pokemon)
+                            .contentShape(RoundedRectangle(cornerRadius: 0))
+                            .onTapGesture {
+                                
+                                self.selectedPokemon = pokemon
+                                self.showPokemonDetailsView.toggle()
+                                
+                            }
                     }
                     
                 }.listStyle(.grouped)
@@ -40,18 +52,24 @@ struct PokemonListView: View {
             .navigationTitle("Pokemons")
             
         }.navigationViewStyle(StackNavigationViewStyle())
-        .searchable(text: self.$model.searchPokemon) {
-            
-            let searchableList = (self.model.pokemonList?.results ?? [ResultModel]()).filter{($0.name ?? "").capitalized.contains(self.model.searchPokemon.capitalized)}
-
-            ForEach(searchableList) { pokemon in
-
-                /// Cell view
-                Text(pokemon.name ?? "Pokemon")
+            .searchable(text: self.$model.searchPokemon) {
+                
+                let searchableList = (self.model.pokemonList?.results ?? [ResultModel]()).filter{($0.name ?? "").capitalized.contains(self.model.searchPokemon.capitalized)}
+                
+                ForEach(searchableList) { pokemon in
+                    
+                    /// Cell view
+                    PokemonListCellView(pokemonDetail: pokemon)
+                        .contentShape(RoundedRectangle(cornerRadius: 0))
+                        .onTapGesture {
+                            
+                            self.selectedPokemon = pokemon
+                            self.showPokemonDetailsView.toggle()
+                            
+                        }
+                }
+                
             }
-            
-        }
-        
         
     }
 }

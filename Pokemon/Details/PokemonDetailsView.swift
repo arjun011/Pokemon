@@ -26,9 +26,6 @@ struct PokemonDetailsView: View {
                         
                         HStack(alignment: .center) {
                             
-                            Text((self.model.pokemonDetails?.name ?? "").capitalizingFirstLetter())
-                                .font(.system(size: 35, weight: .bold))
-                            
                             Spacer()
                             
                             Text("#0\(self.model.pokemonDetails?.id ?? 1)")
@@ -77,7 +74,7 @@ struct PokemonDetailsView: View {
                                 PokemonAboutView(pokemonDetails: self.model.pokemonDetails)
                                     .padding(.horizontal, 25)
                             }else {
-                            
+                                
                                 PokemonBaseStatesView(pokemonDetails: self.model.pokemonDetails)
                                     .padding(.horizontal, 25)
                                 
@@ -88,18 +85,18 @@ struct PokemonDetailsView: View {
                         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                             .cornerRadius(40, corners: [.topLeft, .topRight])
                             .padding()
-                           
+                        
                     }
                     
                 }
             }
+            .navigationTitle((self.model.pokemonDetails?.name ?? "").capitalizingFirstLetter())
             
         }.onAppear {
             Task {
                 await model.getPokemonDetails(detailsUrl: detailsUrl)
             }
         }
-        
         
     }
 }
