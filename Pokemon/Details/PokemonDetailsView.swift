@@ -92,19 +92,11 @@ struct PokemonDetailsView: View {
                                     .padding(.horizontal, 25)
                             }else {
                             
-                                VStack(alignment: .leading, spacing: 10) {
-                                    
-                                    ForEach(self.model.pokemonDetails?.stats ??  [Stat]()) { stateObj in
-                                        
-                                        PokemonBaseStatesView(pokemonStat: stateObj)
-                                        
-                                    }
-                                    
-                                }.padding(.horizontal, 25)
+                                PokemonBaseStatesView(pokemonDetails: self.model.pokemonDetails)
+                                    .padding(.horizontal, 25)
                                 
                             }
                             
-
                             Spacer()
                             
                         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)

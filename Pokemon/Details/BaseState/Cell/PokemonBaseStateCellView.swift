@@ -1,5 +1,5 @@
 //
-//  PokemonBaseStatesView.swift
+//  PokemonBaseStateCellView.swift
 //  Pokemon
 //
 //  Created by Arjun on 21/07/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PokemonBaseStatesView: View {
+struct PokemonBaseStateCellView: View {
     var pokemonStat:Stat?
     var body: some View {
         
@@ -15,17 +15,18 @@ struct PokemonBaseStatesView: View {
             
             Text(pokemonStat?.stat?.name ?? "")
                 .foregroundColor(.secondary)
-            
+                
             Text("\(pokemonStat?.baseStat ?? 0)")
             
             ProgressView(value: (Float((pokemonStat?.baseStat ?? 1) < 100 ? (pokemonStat?.baseStat ?? 1) : 100) / 100))
             
         }
+        
     }
 }
 
-struct PokemonBaseStatesView_Previews: PreviewProvider {
+struct PokemonBaseStateCellView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonBaseStatesView()
+        PokemonBaseStateCellView()
     }
 }
