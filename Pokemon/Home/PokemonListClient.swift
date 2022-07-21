@@ -16,6 +16,13 @@ class PokemonListClient {
         let getPokemonList = url == nil ? APIConstant.getPokemonList : (url ?? "")
         debugPrint(getPokemonList)
         
+        if InternetConnectionManager.isConnectedToNetwork(){
+            debugPrint("Connected")
+        }else{
+           return ResponseManager.offline
+        }
+        
+        
         do {
             let request = try ClientManager.GET(getPokemonList)
             let (data,response) = try await URLSession.shared.data(for: request)

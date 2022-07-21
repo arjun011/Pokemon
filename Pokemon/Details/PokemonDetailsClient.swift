@@ -17,6 +17,12 @@ class PokemonDetailsClient {
         
         debugPrint(detailsUrl)
         
+        if InternetConnectionManager.isConnectedToNetwork(){
+            debugPrint("Connected")
+        }else{
+           return ResponseManager.offline
+        }
+        
         do {
             let request = try ClientManager.GET(detailsUrl)
             let (data,response) = try await URLSession.shared.data(for: request)
