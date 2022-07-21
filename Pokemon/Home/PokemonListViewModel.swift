@@ -17,15 +17,23 @@ class PokemonListViewModel: ObservableObject {
     
     /// Fetch pokemon list
     @MainActor
-    func getPokemonList() async {
+    func getPokemonList(url:String?) async {
         
         do {
-            let response = try await self.client.retrivePokemonList()
+            let response = try await self.client.retrivePokemonList(url: url)
             
             switch response {
             case let .success(pokelist):
                 
-                self.pokemonList = pokelist
+                if self.pokemonList?.results?.count ?? 0 > 0 {
+                    
+                    self.pokemonList?.next = pokelist.next
+                    self.pokemonList?.results = (pokelist.results ?? [ResultModel]()) + (self.pokemonList?.results ?? [ResultModel]())
+                    
+                }else {
+                    
+                    self.pokemonList = pokelist
+                }
                 
             case let .error(error):
                 debugPrint("====>\(error)")

@@ -11,9 +11,9 @@ class PokemonListClient {
     
     /// Retrive pokemonList
     /// - Returns: PokemonListModel
-    func retrivePokemonList() async throws -> ResponseManager<PokemonListModel> {
+    func retrivePokemonList(url:String?) async throws -> ResponseManager<PokemonListModel> {
         
-        let getPokemonList = APIConstant.getPokemonList
+        let getPokemonList = url == nil ? APIConstant.getPokemonList : (url ?? "")
         debugPrint(getPokemonList)
         
         do {

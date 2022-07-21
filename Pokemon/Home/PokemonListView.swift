@@ -41,12 +41,22 @@ struct PokemonListView: View {
                     }
                     
                 }.listStyle(.grouped)
+                    .refreshable {
+                        
+                        /// Pull to refersh data
+                        guard let nextAPI = model.pokemonList?.next else {
+                            return
+                        }
+                        Task {
+                            await self.model.getPokemonList(url: nextAPI)
+                        }
+                    }
                 
             }.onAppear {
                 
                 Task {
                     /// Retrive pokemon list from API
-                    await model.getPokemonList()
+                    await model.getPokemonList(url: nil)
                 }
             }
             .navigationTitle("Pokemons")
