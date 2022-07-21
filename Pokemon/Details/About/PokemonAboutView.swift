@@ -32,6 +32,8 @@ struct PokemonAboutView: View {
             }
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .padding(.horizontal, 25)
+        
 
         
     }

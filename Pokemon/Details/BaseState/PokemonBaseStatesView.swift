@@ -21,7 +21,8 @@ struct PokemonBaseStatesView: View {
                 
             }
             
-        }.padding(.horizontal, 25)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .padding(.horizontal, 25)
     }
 }
 

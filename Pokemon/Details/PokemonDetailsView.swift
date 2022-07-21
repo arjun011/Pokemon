@@ -59,6 +59,7 @@ struct PokemonDetailsView: View {
                             
                         }
                         
+                        
                         VStack(alignment: .center) {
                             
                             Picker("", selection: self.$model.selectedSegment) {
@@ -70,21 +71,30 @@ struct PokemonDetailsView: View {
                             
                             Spacer()
                             
-                            if self.model.selectedSegment == 0 {
-                                PokemonAboutView(pokemonDetails: self.model.pokemonDetails)
-                                    .padding(.horizontal, 25)
-                            }else {
-                                
-                                PokemonBaseStatesView(pokemonDetails: self.model.pokemonDetails)
-                                    .padding(.horizontal, 25)
-                                
-                            }
+                            GeometryReader { gr in
                             
+                                /// Pokemon About  view on segment 0
+                                PokemonAboutView(pokemonDetails: self.model.pokemonDetails)
+                                    
+                                .offset(x: self.model.selectedSegment == 0 ? 0 : -gr.size.width, y: 0)
+                                .animation(.default, value: self.model.selectedSegment)
+                                
+                                
+                                /// Pokemon State view on segment 1
+                            
+                                PokemonBaseStatesView(pokemonDetails: self.model.pokemonDetails)
+                                .offset(x: self.model.selectedSegment == 1 ? 0 : gr.size.width, y: 0)
+                                .animation(.default, value: self.model.selectedSegment)
+                                
+                                
+                            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                            .layoutPriority(1)
+                             
                             Spacer()
                             
-                        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                            .cornerRadius(40, corners: [.topLeft, .topRight])
-                            .padding()
+                        }
+                    
+                        .padding()
                         
                     }
                     
